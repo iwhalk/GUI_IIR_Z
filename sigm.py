@@ -99,6 +99,17 @@ def Ejemplo():
 
     Guardar()
 
+def Ejemplo2():
+
+    Borrar()
+
+    indiceA_1.insert(END, '1')
+    indiceA_2.insert(END, '2')
+    indiceB_1.insert(END, '0.75')
+    indiceB_2.insert(END, '-0.125')
+
+    Guardar()
+
 def validate(P):
     pattern = r'^-?\d+(\.\d+)?([eE][-+]?\d+)?$'
     if re.fullmatch(pattern, P) is None:
@@ -172,6 +183,11 @@ if __name__ == '__main__':
     root = Tk()
 
     root.title('Conchitas tia Rosa')
+
+    imagen = PhotoImage(file = "C:\\Users\\iwhalk\\GUI\\GUI_IIR_Z\\Conchas.png")
+    background = Label(image = imagen, text = "Imagen S.O de fondo")
+    background.place(x = 0, y = 0, relwidth = 1, relheight = 1)
+
     A = []
     B = []
     
@@ -224,6 +240,7 @@ if __name__ == '__main__':
     BotonImpulso =  Button(root, text="Respuesta al impulso", command=lambda: plotImpulseResponse(B, A, horizontal.get()))    
     BotonROC = Button(root, text="Plano Complejo", command=lambda: zplane(B,A))
     BottonEjemplo = Button (root, text="Ejemplo 1", command=Ejemplo)
+    BottonEjemplo2 = Button (root, text="Ejemplo 2", command=Ejemplo2)
     BotonSubir = Button(root, text="Guardar", command = Guardar)
     BotonBorrar = Button(root, text="Borrar", command=Borrar)
 
@@ -232,6 +249,7 @@ if __name__ == '__main__':
     BotonImpulso.grid(row = 3, column = 1,columnspan=2, ipadx = 20, ipady=20)
     BotonROC.grid(row = 3, column = 3,columnspan=2, ipadx = 20, ipady=20)
     BottonEjemplo.grid(row = 4, column = 0, ipadx = 20, ipady=20, )
+    BottonEjemplo2.grid(row = 4, column = 1, ipadx = 20, ipady=20, )
     BotonFuncion = Button(root, text="Función de transferencia",command=lambda: graph(B, A))
     BotonFuncion.grid(row = 6, column = 0, columnspan = 4, padx = 40)
     BotonZP = Button(root, text="Polos y Ceros",command=lambda: graphZP(B, A))
